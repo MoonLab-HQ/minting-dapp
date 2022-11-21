@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0x2826B43d94d18fAD7216b809199547957f4597CB",
+  "SCAN_LINK": "https://polygonscan.com/token/0x2826B43d94d18fAD7216b809199547957f4597CB",
+  "NETWORK": {
+    "NAME": "Polygon",
+    "SYMBOL": "Matic",
+    "ID": 137
+  },
+  "NFT_NAME": "Cryptorado Workshop",
+  "SYMBOL": "CW",
+  "MAX_SUPPLY": 60,
+  "WEI_COST": 500000000000000,
+  "DISPLAY_COST": 0.005,
+  "GAS_LIMIT": 350000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/cryptorado-workshop",
+  "SHOW_BACKGROUND": false
+}
