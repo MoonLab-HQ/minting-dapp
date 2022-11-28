@@ -270,7 +270,7 @@ function App() {
                 >
                   {/* 1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
                   {CONFIG.NETWORK.SYMBOL}. */}
-                  These tokens are free for the Cryptorado NFT Workshop!
+                  These tokens are free for the Rich Ramsay Studios NFT Workshop!
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
@@ -307,8 +307,8 @@ function App() {
                         color: "var(--primary-text)",
                       }}
                     >
-                      <StyledLink target={"_blank"} href={"https://cryptorado.org/"}>
-                        Find us on Cryptorado.org
+                      <StyledLink target={"_blank"} href={"https://richramsaystudios.org/"}>
+                        Find us on richramsaystudios.com
                       </StyledLink>
                     </s.TextDescription>
                     {blockchain.errorMsg !== "" ? (
