@@ -123,7 +123,6 @@ function App() {
   });
 
   const claimNFTs = () => {
-    console.log("/n/n/n/n/nBEGIN: ");
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
@@ -380,7 +379,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "BUSY" : "MINT"}
+                        {claimingNft ? "BUSY" : "MINT WITH METAMASK"}
                       </StyledButton>
                     </s.Container>
                   </>
