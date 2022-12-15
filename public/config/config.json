@@ -1,16 +1,16 @@
 {
-  "CONTRACT_ADDRESS": "0x2826B43d94d18fAD7216b809199547957f4597CB",
-  "SCAN_LINK": "https://polygonscan.com/token/0x2826B43d94d18fAD7216b809199547957f4597CB",
+  "CONTRACT_ADDRESS": "0x92E9CEB624Dd8a37D998745E7106b0D1636177CF",
+  "SCAN_LINK": "https://goerli.etherscan.io/address/0x92e9ceb624dd8a37d998745e7106b0d1636177cf",
   "NETWORK": {
-    "NAME": "Polygon",
-    "SYMBOL": "Matic",
-    "ID": 137
+    "NAME": "Goerli Ethereum",
+    "SYMBOL": "ETH",
+    "ID": 5
   },
-  "NFT_NAME": "Cryptorado Workshop",
-  "SYMBOL": "CW",
-  "MAX_SUPPLY": 60,
-  "WEI_COST": 500000000000000,
-  "DISPLAY_COST": 0.005,
+  "NFT_NAME": "Whayle Club",
+  "SYMBOL": "Whayle",
+  "MAX_SUPPLY": 1111,
+  "WEI_COST": 1000000000000000,
+  "DISPLAY_COST": 0.01,
   "GAS_LIMIT": 350000,
   "MARKETPLACE": "Opeansea",
   "MARKETPLACE_LINK": "https://opensea.io/collection/cryptorado-workshop",

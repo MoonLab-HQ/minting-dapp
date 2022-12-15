@@ -4,6 +4,8 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
+// import Mint from "./mint.js"
+import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -99,7 +101,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click claim to mint your NFT.`);
+  const [feedback, setFeedback] = useState(`Click mint to buy your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -221,7 +223,7 @@ function App() {
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
-            {/* <s.TextTitle
+            <s.TextTitle
               style={{
                 textAlign: "center",
                 fontSize: 50,
@@ -230,7 +232,7 @@ function App() {
               }}
             >
               {data.totalSupply} / {CONFIG.MAX_SUPPLY}
-            </s.TextTitle> */}
+            </s.TextTitle>
             <s.TextDescription
               style={{
                 textAlign: "center",
@@ -245,6 +247,7 @@ function App() {
                 View on Opensea
               </StyledLink>
             </s.TextDescription>
+            
             <s.SpacerSmall />
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
               <>
@@ -268,9 +271,9 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  {/* 1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
-                  {CONFIG.NETWORK.SYMBOL}. */}
-                  These tokens are free for the Rich Ramsay Studios NFT Workshop!
+                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{"  "}
+                  {CONFIG.NETWORK.SYMBOL}.
+                  {/* Whayle Club */}
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
@@ -308,7 +311,7 @@ function App() {
                       }}
                     >
                       <StyledLink target={"_blank"} href={"https://richramsaystudios.org/"}>
-                        Find us on richramsaystudios.com
+                        Find us on INSERTURLHERE.com
                       </StyledLink>
                     </s.TextDescription>
                     {blockchain.errorMsg !== "" ? (
@@ -337,7 +340,7 @@ function App() {
                     </s.TextDescription>
                     <s.SpacerMedium />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      {/* <StyledRoundButton
+                      <StyledRoundButton
                         style={{ lineHeight: 0.4 }}
                         disabled={claimingNft ? 1 : 0}
                         onClick={(e) => {
@@ -346,18 +349,18 @@ function App() {
                         }}
                       >
                         -
-                      </StyledRoundButton> */}
+                      </StyledRoundButton>
                       <s.SpacerMedium />
-                      {/* <s.TextDescription
+                      <s.TextDescription
                         style={{
                           textAlign: "center",
                           color: "var(--accent-text)",
                         }}
                       >
                         {mintAmount}
-                      </s.TextDescription> */}
+                      </s.TextDescription>
                       <s.SpacerMedium />
-                      {/* <StyledRoundButton
+                      <StyledRoundButton
                         disabled={claimingNft ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
@@ -365,7 +368,7 @@ function App() {
                         }}
                       >
                         +
-                      </StyledRoundButton> */}
+                      </StyledRoundButton>
                     </s.Container>
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
@@ -377,13 +380,24 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "BUSY" : "CLAIM"}
+                        {claimingNft ? "BUSY" : "MINT"}
                       </StyledButton>
                     </s.Container>
                   </>
                 )}
               </>
             )}
+            <CrossmintPayButton
+ 
+ clientId="699b1efb-b821-41c0-bd8f-3d7deca42dd0"
+
+ mintConfig={{"type":"erc-721","totalPrice":"0.01","_mintAmount":"1"}}
+
+ environment="staging"
+
+ 
+
+/>
             <s.SpacerMedium />
           </s.Container>
           <s.SpacerLarge />

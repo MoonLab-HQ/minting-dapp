@@ -149,6 +149,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "cost",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -207,12 +220,30 @@
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+      },
+      {
         "internalType": "uint256",
         "name": "_mintAmount",
         "type": "uint256"
       }
     ],
     "name": "mint",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_mintAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "mintToSelf",
     "outputs": [],
     "stateMutability": "payable",
     "type": "function"
@@ -257,6 +288,32 @@
         "internalType": "address",
         "name": "",
         "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "_state",
+        "type": "bool"
+      }
+    ],
+    "name": "pause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "paused",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",
@@ -373,6 +430,19 @@
       }
     ],
     "name": "setBaseURI",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_newCost",
+        "type": "uint256"
+      }
+    ],
+    "name": "setCost",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
