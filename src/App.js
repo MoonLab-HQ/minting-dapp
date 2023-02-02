@@ -309,8 +309,8 @@ function App() {
                         color: "var(--primary-text)",
                       }}
                     >
-                      <StyledLink target={"_blank"} href={"https://richramsaystudios.org/"}>
-                        Find us on INSERTURLHERE.com
+                      <StyledLink target={"_blank"} href={"https://whayle.io/"}>
+                        Find us on Whayle.io
                       </StyledLink>
                     </s.TextDescription>
                     {blockchain.errorMsg !== "" ? (

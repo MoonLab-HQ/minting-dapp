@@ -1,6 +1,6 @@
 {
   "CONTRACT_ADDRESS": "0x92E9CEB624Dd8a37D998745E7106b0D1636177CF",
-  "SCAN_LINK": "https://goerli.etherscan.io/address/0x92e9ceb624dd8a37d998745e7106b0d1636177cf",
+  "SCAN_LINK": "https://etherscan.io/address/0x92e9ceb624dd8a37d998745e7106b0d1636177cf",
   "NETWORK": {
     "NAME": "Goerli Ethereum",
     "SYMBOL": "ETH",
@@ -8,11 +8,11 @@
   },
   "NFT_NAME": "Whayle Club",
   "SYMBOL": "Whayle",
-  "MAX_SUPPLY": 1111,
+  "MAX_SUPPLY": 500,
   "WEI_COST": 1000000000000000,
   "DISPLAY_COST": 0.01,
   "GAS_LIMIT": 350000,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://opensea.io/collection/cryptorado-workshop",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/whayle-club",
   "SHOW_BACKGROUND": false
 }
