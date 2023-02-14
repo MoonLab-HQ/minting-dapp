@@ -61,7 +61,7 @@ export const ResponsiveWrapper = styled.div`
   flex-direction: column;
   justify-content: stretched;
   align-items: stretched;
-  width: 100%;
+
   @media (min-width: 767px) {
     flex-direction: row;
   }
@@ -202,6 +202,7 @@ function App() {
         ai={"center"}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg2.png" : null}
       >
+        <s.SpacerXSmall />
         <StyledLogo alt={"logo"} src={"/config/images/logo2.png"} />
         <s.SpacerMedium />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
@@ -211,8 +212,10 @@ function App() {
             jc={"center"}
             ai={"center"}
             style={{
-              backgroundColor: "var(--accent)",
+              backgroundColor: "var(--accent-fade)",
               padding: 24,
+              paddingLeft: 56,
+              paddingRight: 56,
               borderRadius: 24,
               border: "4px dashed var(--secondary)",
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
@@ -240,12 +243,11 @@ function App() {
               <s.SpacerXSmall />
               <StyledLink
                 target={"_blank"}
-                href={"https://opensea.io/collection/cryptorado-workshop"}
+                href={"https://opensea.io/collection/whayle-club"}
               >
                 View on Opensea
               </StyledLink>
             </s.TextDescription>
-
             <s.SpacerSmall />
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
               <>
@@ -283,6 +285,37 @@ function App() {
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (
                   <s.Container ai={"center"} jc={"center"}>
+                    <s.SpacerLarge />
+                    <s.TextDescription
+                      style={{
+                        textAlign: "center",
+                        color: "var(--secondary-text)",
+                      }}
+                    >
+                      Mint with credit card (Crossmint)
+                    </s.TextDescription>
+                    <s.SpacerSmall />
+                    <CrossmintPayButton
+                      clientId="699b1efb-b821-41c0-bd8f-3d7deca42dd0"
+                      mintConfig={{
+                        type: "erc-721",
+                        totalPrice: "0.01",
+                        _mintAmount: "1",
+                      }}
+                      environment="staging"
+                    />
+
+                    <s.SpacerLarge />
+                    <s.SpacerLarge />
+
+                    <s.TextDescription
+                      style={{
+                        textAlign: "center",
+                        color: "var(--secondary-text)",
+                      }}
+                    >
+                      Mint with Web3 (MetaMask)
+                    </s.TextDescription>
                     <s.TextDescription
                       style={{
                         textAlign: "center",
@@ -301,17 +334,6 @@ function App() {
                     >
                       CONNECT
                     </StyledButton>
-                    <s.SpacerSmall />
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--primary-text)",
-                      }}
-                    >
-                      <StyledLink target={"_blank"} href={"https://whayle.io/"}>
-                        Find us on Whayle.io
-                      </StyledLink>
-                    </s.TextDescription>
                     {blockchain.errorMsg !== "" ? (
                       <>
                         <s.SpacerSmall />
@@ -385,25 +407,52 @@ function App() {
                 )}
               </>
             )}
-            <CrossmintPayButton
-              clientId="699b1efb-b821-41c0-bd8f-3d7deca42dd0"
-              mintConfig={{
-                type: "erc-721",
-                totalPrice: "0.01",
-                _mintAmount: "1",
-              }}
-              environment="staging"
-            />
+
+
             <s.SpacerMedium />
+            <s.SpacerMedium />
+
+
+            <s.TextDescription
+              style={{
+                textAlign: "center",
+                color: "var(--primary-text)",
+              }}
+            >
+              <StyledLink target={"_blank"} href={"https://whayle.io/"}>
+                Find us on Whayle.io
+              </StyledLink>
+            </s.TextDescription>
           </s.Container>
           <s.SpacerLarge />
         </ResponsiveWrapper>
         <s.SpacerMedium />
-        <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+        <s.Container
+          flex={2}
+          jc={"center"}
+          ai={"center"}
+          style={{
+            width: "70%",
+            backgroundColor: "var(--accent-fade)",
+            padding: 24,
+            borderRadius: 24,
+            border: "4px dashed var(--secondary)",
+            boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+          }}
+        >
           <s.TextDescription
             style={{
               textAlign: "center",
-              color: "var(--primary-text)",
+              color: "var(--secondary-text)",
+            }}
+          >
+            For Web3 users:
+          </s.TextDescription>
+          <s.SpacerSmall />
+          <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--secondary-text)",
             }}
           >
             Please make sure you are connected to the right network (
@@ -414,7 +463,7 @@ function App() {
           <s.TextDescription
             style={{
               textAlign: "center",
-              color: "var(--primary-text)",
+              color: "var(--secondary-text)",
             }}
           >
             We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
@@ -422,6 +471,9 @@ function App() {
             gas limit.
           </s.TextDescription>
         </s.Container>
+        <s.SpacerLarge />
+        <s.SpacerLarge />
+        <s.SpacerLarge />
       </s.Container>
     </s.Screen>
   );

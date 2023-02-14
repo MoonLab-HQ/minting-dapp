@@ -4,5 +4,6 @@
   --secondary: #e03743;
   --secondary-text: #ffffff;
   --accent: #417798;
+  --accent-fade: rgb(65, 119, 152, 0.5);
   --accent-text: #ffffff;
 }

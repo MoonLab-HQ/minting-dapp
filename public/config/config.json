@@ -8,7 +8,7 @@
   },
   "NFT_NAME": "Whayle Club",
   "SYMBOL": "Whayle",
-  "MAX_SUPPLY": 500,
+  "MAX_SUPPLY": 2000,
   "WEI_COST": 1000000000000000,
   "DISPLAY_COST": 0.01,
   "GAS_LIMIT": 350000,
