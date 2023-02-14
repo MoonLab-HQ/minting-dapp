@@ -119,7 +119,7 @@ function App() {
     GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
-    SHOW_BACKGROUND: false,
+    SHOW_BACKGROUND: true,
   });
 
   const claimNFTs = () => {
@@ -196,19 +196,15 @@ function App() {
   }, [blockchain.account]);
 
   return (
-    <s.Screen>
+    <s.Screen image={"/config/images/bg2.png"}>
       <s.Container
         flex={1}
         ai={"center"}
-        style={{ padding: 24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg2.png" : null}
       >
         <StyledLogo alt={"logo"} src={"/config/images/logo2.png"} />
-        <s.SpacerSmall />
+        <s.SpacerMedium />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
-          {/* <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg alt={"example"} src={"/config/images/example.gif"} />
-          </s.Container> */}
           <s.SpacerLarge />
           <s.Container
             flex={2}
@@ -242,11 +238,14 @@ function App() {
                 {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
               </StyledLink>
               <s.SpacerXSmall />
-              <StyledLink target={"_blank"} href={"https://opensea.io/collection/cryptorado-workshop"}>
+              <StyledLink
+                target={"_blank"}
+                href={"https://opensea.io/collection/cryptorado-workshop"}
+              >
                 View on Opensea
               </StyledLink>
             </s.TextDescription>
-            
+
             <s.SpacerSmall />
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
               <>
@@ -270,9 +269,9 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{"  "}
+                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}
+                  {"  "}
                   {CONFIG.NETWORK.SYMBOL}.
-                  {/* Whayle Club */}
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
@@ -387,26 +386,17 @@ function App() {
               </>
             )}
             <CrossmintPayButton
- 
- clientId="699b1efb-b821-41c0-bd8f-3d7deca42dd0"
-
- mintConfig={{"type":"erc-721","totalPrice":"0.01","_mintAmount":"1"}}
-
- environment="staging"
-
- 
-
-/>
+              clientId="699b1efb-b821-41c0-bd8f-3d7deca42dd0"
+              mintConfig={{
+                type: "erc-721",
+                totalPrice: "0.01",
+                _mintAmount: "1",
+              }}
+              environment="staging"
+            />
             <s.SpacerMedium />
           </s.Container>
           <s.SpacerLarge />
-          {/* <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg
-              alt={"example"}
-              src={"/config/images/example.gif"}
-              style={{ transform: "scaleX(-1)" }}
-            />
-          </s.Container> */}
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>

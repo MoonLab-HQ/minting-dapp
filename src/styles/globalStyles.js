@@ -5,7 +5,7 @@ export const Screen = styled.div`
   background-color: var(--primary);
   background-image: ${({ image }) => (image ? `url(${image})` : "none")};
   background-size: cover;
-  background-position: center;
+  background-position: top;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -45,7 +45,7 @@ export const Container = styled.div`
   align-items: ${({ ai }) => (ai ? ai : "flex-start")};
   background-color: ${({ test }) => (test ? "pink" : "none")};
   width: 100%;
-  background-image: ${({ image }) => (image ? `url(${image})` : "none")};
+  background-image: "bg2.png";
   background-size: cover;
   background-position: center;
 `;
