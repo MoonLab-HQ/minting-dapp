@@ -121,6 +121,16 @@ function App() {
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: true,
   });
+  const presaleTime = 1676826000; //Noon EST
+  const presaleString = "2023-02-19T24:00:00Z";
+
+  const convertUTCDateToLocalDate = (date) => {
+    var dateLocal = new Date(date);
+    var newDate = new Date(
+      dateLocal.getTime() - dateLocal.getTimezoneOffset() * 60 * 1000
+    );
+    return newDate;
+  };
 
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
@@ -282,6 +292,26 @@ function App() {
                   Excluding gas fees.
                 </s.TextDescription>
                 <s.SpacerSmall />
+
+
+
+                {!(Date.now() / 1000 > presaleTime + 2 * 3600 * 24) ? (
+                <p>
+                  Sorry, the public sale has not yet begun. Please return at{" "}
+                  {convertUTCDateToLocalDate(
+                    presaleString
+                  ).toLocaleDateString() +
+                    " " +
+                    convertUTCDateToLocalDate(
+                      presaleString
+                    ).toLocaleTimeString() +
+                    " " +
+                    Intl.DateTimeFormat().resolvedOptions().timeZone}
+                </p>
+              ) : (
+                <>xxx</>
+              )}
+
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (
                   <s.Container ai={"center"} jc={"center"}>
