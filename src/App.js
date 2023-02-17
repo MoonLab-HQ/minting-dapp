@@ -293,155 +293,153 @@ function App() {
                 </s.TextDescription>
                 <s.SpacerSmall />
 
-
-
                 {!(Date.now() / 1000 > presaleTime + 2 * 3600 * 24) ? (
-                <p>
-                  Sorry, the public sale has not yet begun. Please return at{" "}
-                  {convertUTCDateToLocalDate(
-                    presaleString
-                  ).toLocaleDateString() +
-                    " " +
-                    convertUTCDateToLocalDate(
+                  <p>
+                    Sorry, the public sale has not yet begun. Please return at{" "}
+                    {convertUTCDateToLocalDate(
                       presaleString
-                    ).toLocaleTimeString() +
-                    " " +
-                    Intl.DateTimeFormat().resolvedOptions().timeZone}
-                </p>
-              ) : (
-                <>xxx</>
-              )}
-
-                {blockchain.account === "" ||
-                blockchain.smartContract === null ? (
-                  <s.Container ai={"center"} jc={"center"}>
-                    <s.SpacerLarge />
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--secondary-text)",
-                      }}
-                    >
-                      Mint with credit card (Crossmint)
-                    </s.TextDescription>
-                    <s.SpacerSmall />
-                    <CrossmintPayButton
-                      clientId="699b1efb-b821-41c0-bd8f-3d7deca42dd0"
-                      mintConfig={{
-                        type: "erc-721",
-                        totalPrice: "0.01",
-                        _mintAmount: "1",
-                      }}
-                      environment="staging"
-                    />
-
-                    <s.SpacerLarge />
-                    <s.SpacerLarge />
-
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--secondary-text)",
-                      }}
-                    >
-                      Mint with Web3 (MetaMask)
-                    </s.TextDescription>
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--accent-text)",
-                      }}
-                    >
-                      Connect to the {CONFIG.NETWORK.NAME} network
-                    </s.TextDescription>
-                    <s.SpacerSmall />
-                    <StyledButton
-                      onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(connect());
-                        getData();
-                      }}
-                    >
-                      CONNECT
-                    </StyledButton>
-                    {blockchain.errorMsg !== "" ? (
-                      <>
+                    ).toLocaleDateString() +
+                      " " +
+                      convertUTCDateToLocalDate(
+                        presaleString
+                      ).toLocaleTimeString() +
+                      " " +
+                      Intl.DateTimeFormat().resolvedOptions().timeZone}
+                  </p>
+                ) : (
+                  <>
+                    {/* begin mint logic */}
+                    {blockchain.account === "" ||
+                    blockchain.smartContract === null ? (
+                      <s.Container ai={"center"} jc={"center"}>
+                        <s.SpacerLarge />
+                        <s.TextDescription
+                          style={{
+                            textAlign: "center",
+                            color: "var(--secondary-text)",
+                          }}
+                        >
+                          Mint with credit card (Crossmint)
+                        </s.TextDescription>
                         <s.SpacerSmall />
+                        <CrossmintPayButton
+                          clientId="699b1efb-b821-41c0-bd8f-3d7deca42dd0"
+                          mintConfig={{
+                            type: "erc-721",
+                            totalPrice: "0.01",
+                            _mintAmount: "1",
+                          }}
+                          environment="staging"
+                        />
+
+                        <s.SpacerLarge />
+                        <s.SpacerLarge />
+
+                        <s.TextDescription
+                          style={{
+                            textAlign: "center",
+                            color: "var(--secondary-text)",
+                          }}
+                        >
+                          Mint with Web3 (MetaMask)
+                        </s.TextDescription>
                         <s.TextDescription
                           style={{
                             textAlign: "center",
                             color: "var(--accent-text)",
                           }}
                         >
-                          {blockchain.errorMsg}
+                          Connect to the {CONFIG.NETWORK.NAME} network
                         </s.TextDescription>
+                        <s.SpacerSmall />
+                        <StyledButton
+                          onClick={(e) => {
+                            e.preventDefault();
+                            dispatch(connect());
+                            getData();
+                          }}
+                        >
+                          CONNECT
+                        </StyledButton>
+                        {blockchain.errorMsg !== "" ? (
+                          <>
+                            <s.SpacerSmall />
+                            <s.TextDescription
+                              style={{
+                                textAlign: "center",
+                                color: "var(--accent-text)",
+                              }}
+                            >
+                              {blockchain.errorMsg}
+                            </s.TextDescription>
+                          </>
+                        ) : null}
+                      </s.Container>
+                    ) : (
+                      <>
+                        <s.TextDescription
+                          style={{
+                            textAlign: "center",
+                            color: "var(--accent-text)",
+                          }}
+                        >
+                          {feedback}
+                        </s.TextDescription>
+                        <s.SpacerMedium />
+                        <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                          <StyledRoundButton
+                            style={{ lineHeight: 0.4 }}
+                            disabled={claimingNft ? 1 : 0}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              decrementMintAmount();
+                            }}
+                          >
+                            -
+                          </StyledRoundButton>
+                          <s.SpacerMedium />
+                          <s.TextDescription
+                            style={{
+                              textAlign: "center",
+                              color: "var(--accent-text)",
+                            }}
+                          >
+                            {mintAmount}
+                          </s.TextDescription>
+                          <s.SpacerMedium />
+                          <StyledRoundButton
+                            disabled={claimingNft ? 1 : 0}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              incrementMintAmount();
+                            }}
+                          >
+                            +
+                          </StyledRoundButton>
+                        </s.Container>
+                        <s.SpacerSmall />
+                        <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                          <StyledButton
+                            disabled={claimingNft ? 1 : 0}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              claimNFTs();
+                              getData();
+                            }}
+                          >
+                            {claimingNft ? "BUSY" : "MINT WITH METAMASK"}
+                          </StyledButton>
+                        </s.Container>
                       </>
-                    ) : null}
-                  </s.Container>
-                ) : (
-                  <>
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--accent-text)",
-                      }}
-                    >
-                      {feedback}
-                    </s.TextDescription>
-                    <s.SpacerMedium />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledRoundButton
-                        style={{ lineHeight: 0.4 }}
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          decrementMintAmount();
-                        }}
-                      >
-                        -
-                      </StyledRoundButton>
-                      <s.SpacerMedium />
-                      <s.TextDescription
-                        style={{
-                          textAlign: "center",
-                          color: "var(--accent-text)",
-                        }}
-                      >
-                        {mintAmount}
-                      </s.TextDescription>
-                      <s.SpacerMedium />
-                      <StyledRoundButton
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          incrementMintAmount();
-                        }}
-                      >
-                        +
-                      </StyledRoundButton>
-                    </s.Container>
-                    <s.SpacerSmall />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledButton
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          claimNFTs();
-                          getData();
-                        }}
-                      >
-                        {claimingNft ? "BUSY" : "MINT WITH METAMASK"}
-                      </StyledButton>
-                    </s.Container>
+                    )}
+                    {/* end mint logic */}
                   </>
                 )}
               </>
             )}
 
-
             <s.SpacerMedium />
             <s.SpacerMedium />
-
 
             <s.TextDescription
               style={{
