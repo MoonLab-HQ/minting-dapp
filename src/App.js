@@ -295,7 +295,8 @@ function App() {
 
                 {!(Date.now() / 1000 > presaleTime + 2 * 3600 * 24) ? (
                   <p>
-                    Sorry, the public sale has not yet begun. Please return at{" "}
+                    Sorry, the public sale has not yet begun. Release date TBA.
+                    {/* Sorry, the public sale has not yet begun. Please return at{" "}
                     {convertUTCDateToLocalDate(
                       presaleString
                     ).toLocaleDateString() +
@@ -304,7 +305,7 @@ function App() {
                         presaleString
                       ).toLocaleTimeString() +
                       " " +
-                      Intl.DateTimeFormat().resolvedOptions().timeZone}
+                      Intl.DateTimeFormat().resolvedOptions().timeZone} */}
                   </p>
                 ) : (
                   <>
