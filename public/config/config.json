@@ -1,10 +1,10 @@
 {
-  "CONTRACT_ADDRESS": "0x92E9CEB624Dd8a37D998745E7106b0D1636177CF",
-  "SCAN_LINK": "https://etherscan.io/address/0x92e9ceb624dd8a37d998745e7106b0d1636177cf",
+  "CONTRACT_ADDRESS": "0xcomingsoon",
+  "SCAN_LINK": "https://etherscan.io/address/0xcomingsoon",
   "NETWORK": {
-    "NAME": "Goerli Ethereum",
+    "NAME": "Ethereum",
     "SYMBOL": "ETH",
-    "ID": 5
+    "ID": 1
   },
   "NFT_NAME": "Whayle Club",
   "SYMBOL": "Whayle",
