@@ -294,9 +294,11 @@ function App() {
                 <s.SpacerSmall />
 
                 {!(Date.now() / 1000 > presaleTime + 2 * 3600 * 24) ? (
-                  <p>
-                    Sorry, the public sale has not yet begun. Release date TBA.
-                    {/* Sorry, the public sale has not yet begun. Please return at{" "}
+                  <>
+                    <p>
+                      Sorry, the public sale has not yet begun. Release date
+                      TBA.
+                      {/* Sorry, the public sale has not yet begun. Please return at{" "}
                     {convertUTCDateToLocalDate(
                       presaleString
                     ).toLocaleDateString() +
@@ -306,7 +308,12 @@ function App() {
                       ).toLocaleTimeString() +
                       " " +
                       Intl.DateTimeFormat().resolvedOptions().timeZone} */}
-                  </p>
+                    </p>
+                    <p>
+                      Or, you can Pre-Pay now and receive your NFT when the mint goes live!
+                      https://www.crossmint.com/collections/whayleprod/prepay
+                    </p>
+                  </>
                 ) : (
                   <>
                     {/* begin mint logic */}
