@@ -10,7 +10,7 @@ import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
  
                 clientId="699b1efb-b821-41c0-bd8f-3d7deca42dd0"
 
-                mintConfig={{"type":"erc-721","totalPrice":"0.045","_mintAmount":"1"}}
+                mintConfig={{"type":"erc-721","totalPrice":"0.045","quantity":"1"}}
 
                 environment="production"
 
