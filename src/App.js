@@ -121,8 +121,8 @@ function App() {
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: true,
   });
-  const presaleTime = 1676826000; //Noon EST
-  const presaleString = "2023-02-19T24:00:00Z";
+  const presaleTime = 1677430800; //Noon EST
+  const presaleString = "2023-02-26T24:00:00Z";
 
   const convertUTCDateToLocalDate = (date) => {
     var dateLocal = new Date(date);
@@ -231,33 +231,40 @@ function App() {
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
-            <s.TextTitle
-              style={{
-                textAlign: "center",
-                fontSize: 50,
-                fontWeight: "bold",
-                color: "var(--accent-text)",
-              }}
-            >
-              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
-            </s.TextTitle>
-            <s.TextDescription
-              style={{
-                textAlign: "center",
-                color: "var(--primary-text)",
-              }}
-            >
-              <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
-                {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
-              </StyledLink>
-              <s.SpacerXSmall />
-              <StyledLink
-                target={"_blank"}
-                href={"https://opensea.io/collection/whayle-club"}
-              >
-                View on Opensea
-              </StyledLink>
-            </s.TextDescription>
+            {!(Date.now() / 1000 > presaleTime + 2 * 3600 * 24) ? (
+              <></>
+            ) : (
+              <>
+                <s.TextTitle
+                  style={{
+                    textAlign: "center",
+                    fontSize: 50,
+                    fontWeight: "bold",
+                    color: "var(--accent-text)",
+                  }}
+                >
+                  {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+                </s.TextTitle>
+                <s.TextDescription
+                  style={{
+                    textAlign: "center",
+                    color: "var(--primary-text)",
+                  }}
+                >
+                  <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
+                    {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+                  </StyledLink>
+                  <s.SpacerXSmall />
+                  <StyledLink
+                    target={"_blank"}
+                    href={"https://opensea.io/collection/whayle-club"}
+                  >
+                    View on Opensea
+                  </StyledLink>
+                </s.TextDescription>
+              </>
+            )}
+
             <s.SpacerSmall />
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
               <>
@@ -295,24 +302,42 @@ function App() {
 
                 {!(Date.now() / 1000 > presaleTime + 2 * 3600 * 24) ? (
                   <>
-                    <p>
-                      Sorry, the public sale has not yet begun. Release date
-                      TBA.
-                      {/* Sorry, the public sale has not yet begun. Please return at{" "}
-                    {convertUTCDateToLocalDate(
-                      presaleString
-                    ).toLocaleDateString() +
-                      " " +
-                      convertUTCDateToLocalDate(
+                    <s.TextDescription
+                      style={{
+                        textAlign: "center",
+                        color: "var(--accent-text)",
+                      }}
+                    >
+                      The public sale has not yet begun. Please return at{" "}
+                      {convertUTCDateToLocalDate(
                         presaleString
-                      ).toLocaleTimeString() +
-                      " " +
-                      Intl.DateTimeFormat().resolvedOptions().timeZone} */}
-                    </p>
-                    <p>
-                      Or, you can Pre-Pay now and receive your NFT when the mint goes live!
-                      https://www.crossmint.com/collections/whayleprod/prepay
-                    </p>
+                      ).toLocaleDateString() +
+                        " " +
+                        convertUTCDateToLocalDate(
+                          presaleString
+                        ).toLocaleTimeString() +
+                        " " +
+                        Intl.DateTimeFormat().resolvedOptions().timeZone}
+                    </s.TextDescription>
+                    <s.SpacerSmall />
+                    <s.TextDescription
+                      style={{
+                        textAlign: "center",
+                        color: "var(--accent-text)",
+                      }}
+                    >
+                      Or, you can Pre-Pay now and receive your NFT when the mint
+                      goes live on Feb 26th!
+                      <s.SpacerSmall />
+                      <StyledLink
+                        target={"_blank"}
+                        href={
+                          "https://www.crossmint.com/collections/whayleprod/prepay"
+                        }
+                      >
+                        <StyledButton>PREPAY</StyledButton>
+                      </StyledLink>
+                    </s.TextDescription>
                   </>
                 ) : (
                   <>
