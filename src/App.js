@@ -257,7 +257,7 @@ function App() {
                   <s.SpacerXSmall />
                   <StyledLink
                     target={"_blank"}
-                    href={"https://opensea.io/collection/whayle-club"}
+                    href={"https://opensea.io/collection/whayle"}
                   >
                     View on Opensea
                   </StyledLink>
