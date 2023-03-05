@@ -11,7 +11,7 @@
   "MAX_SUPPLY": 2000,
   "WEI_COST": 45000000000000000,
   "DISPLAY_COST": 0.045,
-  "GAS_LIMIT": 3000000,
+  "GAS_LIMIT": 100000,
   "MARKETPLACE": "Opeansea",
   "MARKETPLACE_LINK": "https://opensea.io/collection/whayle",
   "SHOW_BACKGROUND": true
