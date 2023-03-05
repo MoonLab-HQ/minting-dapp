@@ -9,9 +9,9 @@
   "NFT_NAME": "Whayle Club",
   "SYMBOL": "Whayle",
   "MAX_SUPPLY": 2000,
-  "WEI_COST": 4500000000000000,
+  "WEI_COST": 45000000000000000,
   "DISPLAY_COST": 0.045,
-  "GAS_LIMIT": 350000,
+  "GAS_LIMIT": 3000000,
   "MARKETPLACE": "Opeansea",
   "MARKETPLACE_LINK": "https://opensea.io/collection/whayle-club",
   "SHOW_BACKGROUND": true
