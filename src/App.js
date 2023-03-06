@@ -356,13 +356,8 @@ function App() {
                         </s.TextDescription>
                         <s.SpacerSmall />
                         <CrossmintPayButton
-                          clientId="699b1efb-b821-41c0-bd8f-3d7deca42dd0"
-                          mintConfig={{
-                            type: "erc-721",
-                            totalPrice: "0.045",
-                            _mintAmount: "1",
-                          }}
-                          environment="production"
+                          clientId="1d16c0ac-02c0-4dfc-b834-acaf6781cbc1"
+                          mintConfig={{ type: "erc-721", totalPrice: "0.045" }}
                         />
 
                         <s.SpacerLarge />
