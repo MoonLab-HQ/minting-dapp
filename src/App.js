@@ -103,6 +103,7 @@ function App() {
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(`Click mint to buy your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
+  const [crossmintAmount, setCrossmintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
@@ -178,6 +179,22 @@ function App() {
       newMintAmount = 20;
     }
     setMintAmount(newMintAmount);
+  };
+
+  const decrementCrossmintAmount = () => {
+    let newCrossmintAmount = crossmintAmount - 1;
+    if (newCrossmintAmount < 1) {
+      newCrossmintAmount = 1;
+    }
+    setCrossmintAmount(newCrossmintAmount);
+  };
+
+  const incrementCrossmintAmount = () => {
+    let newCrossmintAmount = crossmintAmount + 1;
+    if (newCrossmintAmount > 20) {
+      newCrossmintAmount = 20;
+    }
+    setCrossmintAmount(newCrossmintAmount);
   };
 
   const getData = () => {
@@ -354,10 +371,43 @@ function App() {
                         >
                           Mint with credit card (Crossmint)
                         </s.TextDescription>
+                        <s.SpacerMedium />
+                        <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                          <StyledRoundButton
+                            style={{ lineHeight: 0.4 }}
+                            // disabled={claimingNft ? 1 : 0}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              decrementCrossmintAmount();
+                            }}
+                          >
+                            -
+                          </StyledRoundButton>
+                          <s.SpacerMedium />
+                          <s.TextDescription
+                            style={{
+                              textAlign: "center",
+                              color: "var(--accent-text)",
+                            }}
+                          >
+                            {crossmintAmount}
+                          </s.TextDescription>
+                          <s.SpacerMedium />
+                          <StyledRoundButton
+                            // disabled={claimingNft ? 1 : 0}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              incrementCrossmintAmount();
+                            }}
+                          >
+                            +
+                          </StyledRoundButton>
+                        </s.Container>
+                        <s.SpacerSmall />
                         <s.SpacerSmall />
                         <CrossmintPayButton
                           clientId="1d16c0ac-02c0-4dfc-b834-acaf6781cbc1"
-                          mintConfig={{ type: "erc-721", totalPrice: "0.045" }}
+                          mintConfig={{ type: "erc-721", quantity: "5", totalPrice: "0.045" }}
                         />
 
                         <s.SpacerLarge />
