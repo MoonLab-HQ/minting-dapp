@@ -122,7 +122,7 @@ function App() {
     SHOW_BACKGROUND: true,
   });
   const presaleTime = 1677430800; //Noon EST
-  const presaleString = "2023-02-26T24:00:00Z";
+  const presaleString = "2023-03-20T24:00:00Z";
 
   const convertUTCDateToLocalDate = (date) => {
     var dateLocal = new Date(date);
@@ -300,7 +300,7 @@ function App() {
                 </s.TextDescription>
                 <s.SpacerSmall />
 
-                {!(Date.now() / 1000 > presaleTime + 2 * 3600 * 24) ? (
+                {!(Date.now() / 1000 < presaleTime + 2 * 3600 * 24) ? (
                   <>
                     <s.TextDescription
                       style={{
