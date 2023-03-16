@@ -356,7 +356,7 @@ function App() {
                         </s.TextDescription>
                         <s.SpacerSmall />
                         <CrossmintPayButton
-                          clientId="1d16c0ac-02c0-4dfc-b834-acaf6781cbc1"
+                          clientId="23ec6dc0-770e-4a61-b818-178733f4e67d"
                           mintConfig={{ type: "erc-721", totalPrice: "0.045" }}
                         />
 
