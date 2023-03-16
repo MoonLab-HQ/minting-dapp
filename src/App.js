@@ -122,7 +122,7 @@ function App() {
     SHOW_BACKGROUND: true,
   });
   const presaleTime = 1677430800; //Noon EST
-  const presaleString = "2023-03-20T24:00:00Z";
+  const presaleString = "2023-03-17T04:00:00Z";
 
   const convertUTCDateToLocalDate = (date) => {
     var dateLocal = new Date(date);
@@ -320,7 +320,7 @@ function App() {
                         Intl.DateTimeFormat().resolvedOptions().timeZone}
                     </s.TextDescription>
                     <s.SpacerSmall />
-                    <s.TextDescription
+                    {/* <s.TextDescription
                       style={{
                         textAlign: "center",
                         color: "var(--accent-text)",
@@ -337,7 +337,7 @@ function App() {
                       >
                         <StyledButton>PREPAY</StyledButton>
                       </StyledLink>
-                    </s.TextDescription>
+                    </s.TextDescription> */}
                   </>
                 ) : (
                   <>
